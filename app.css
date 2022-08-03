@@ -6,8 +6,13 @@ ul {
 
 li {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    width: 400px;
+}
 
+li label {
+    border-bottom: 1px solid black;
+    width: 400px;
 }
 
 body {
@@ -16,6 +21,7 @@ body {
 
 .checked {
     text-decoration: line-through;
+    text-decoration-color: green;
 }
 
 .container {
@@ -30,6 +36,14 @@ body {
     width: 250px;
     height: 5vh;
     font-size: 1.5rem;
+}
+
+.editForm input {
+    width: 250px;
+    height: 3vh;
+    font-size: 1.5rem;
+    margin-left: 40px;
+    padding: 5px;
 }
 
 input[type=checkbox] {

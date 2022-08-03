@@ -15,9 +15,9 @@ function renderTodos() {
 
 function renderTodo(todo) {
     list.innerHTML += `    
-    <li>
+    <li class="li${todo.id}">
         <input onclick="tickTodo(${todo.id})" type="checkbox" id="item${todo.id}"${todo.checkbox}>
-        <label for="item${todo.id}" class="${todo.checkbox} label${todo.id}">${todo.text}</label>
+        <label for="item${todo.id}" class="${todo.checkbox}">${todo.text}</label>
         <button onclick="editTodo(${todo.id})">Edit</button>
         <button onclick="removeTodo(${todo.id})">x</button>
     </li>`;
@@ -47,9 +47,9 @@ function removeTodo(removeId) {
 
 function editTodo(editId) {
     const todoIndex = todos.findIndex(todo => todo.id === editId);
-    const itemToEdit = document.querySelector(`.label${todos[todoIndex].id}`);
+    const itemToEdit = document.querySelector(`.li${todos[todoIndex].id}`);
     itemToEdit.innerHTML = `
-    <form class="form${todos[todoIndex].id}">
+    <form class="form${todos[todoIndex].id} editForm">
         <input class="input${todos[todoIndex].id}" "type="text" value="${todos[todoIndex].text}">
         <button>Save</button>
     </form>`;
