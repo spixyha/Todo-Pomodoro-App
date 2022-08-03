@@ -4,6 +4,12 @@ ul {
     padding-left: 0;
 }
 
+li {
+    display: flex;
+    justify-content: space-between;
+
+}
+
 body {
     background-color: antiquewhite;
 }
@@ -29,4 +35,9 @@ body {
 input[type=checkbox] {
     width: 20px;
     height: 20px;
+    margin: 10px;
+}
+
+button {
+    margin: 5px;
 }

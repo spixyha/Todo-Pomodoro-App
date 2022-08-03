@@ -18,7 +18,7 @@ function renderTodo(todo) {
     <li>
         <input onclick="tickTodo(${todo.id})" type="checkbox" id="item${todo.id}"${todo.checkbox}>
         <label for="item${todo.id}" class="${todo.checkbox} label${todo.id}">${todo.text}</label>
-        <button>Edit</button>
+        <button onclick="editTodo(${todo.id})">Edit</button>
         <button onclick="removeTodo(${todo.id})">x</button>
     </li>`;
 }
@@ -43,6 +43,23 @@ function removeTodo(removeId) {
     todoIndex = todos.findIndex(todo => todo.id === removeId);
     todos[todoIndex].isRemoved = true;
     renderTodos();
+}
+
+function editTodo(editId) {
+    const todoIndex = todos.findIndex(todo => todo.id === editId);
+    const itemToEdit = document.querySelector(`.label${todos[todoIndex].id}`);
+    itemToEdit.innerHTML = `
+    <form class="form${todos[todoIndex].id}">
+        <input class="input${todos[todoIndex].id}" "type="text" value="${todos[todoIndex].text}">
+        <button>Save</button>
+    </form>`;
+    const grabEditedInput = document.querySelector(`.input${todos[todoIndex].id}`)
+    const saveForm = document.querySelector(`.form${todos[todoIndex].id}`)
+    saveForm.addEventListener("submit", e => {
+        e.preventDefault();
+        todos[todoIndex].text = grabEditedInput.value;
+        renderTodos();
+    })
 }
 
 form.addEventListener("submit", e => {
