@@ -2,15 +2,12 @@ const list = document.getElementById("todoList");
 const form = document.getElementById("todoForm");
 const todoText = document.getElementById("todoText");
 
-const todos = [];
+let todos = [];
 
 function renderTodos() {
     list.innerHTML = "";
-    todos.forEach(todo => {
-        if (todo.isRemoved === false) {
-            renderTodo(todo);
-        }
-    })
+    todos = todos.filter(todo => todo.isRemoved === false)
+    todos.forEach(todo => renderTodo(todo));
 }
 
 function renderTodo(todo) {
@@ -54,6 +51,9 @@ function editTodo(editId) {
         <button>Save</button>
     </form>`;
     const grabEditedInput = document.querySelector(`.input${todos[todoIndex].id}`)
+    const end = grabEditedInput.value.length
+    grabEditedInput.setSelectionRange(end, end);
+    grabEditedInput.focus();
     const saveForm = document.querySelector(`.form${todos[todoIndex].id}`)
     saveForm.addEventListener("submit", e => {
         e.preventDefault();
@@ -66,7 +66,7 @@ form.addEventListener("submit", e => {
     e.preventDefault();
 
     addTodo({
-        id: todos.length + 1,
+        id: Math.floor(Math.random() * 10000000),
         text: todoText.value,
         isRemoved: false,
         checkbox: "unchecked"
