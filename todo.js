@@ -13,8 +13,8 @@ function renderTodos() {
 function renderTodo(todo) {
     list.innerHTML += `    
     <li class="li${todo.id}">
-        <input onclick="tickTodo(${todo.id})" type="checkbox" id="item${todo.id}"${todo.checkbox}>
-        <label for="item${todo.id}" class="${todo.checkbox}">${todo.text}</label>
+        <input onclick="tickTodo(${todo.id})" type="checkbox" id="item${todo.id}"${checkIfChecked(todo.isChecked)}>
+        <label for="item${todo.id}" class="${checkIfChecked(todo.isChecked)}">${todo.text}</label>
         <button onclick="editTodo(${todo.id})">Edit</button>
         <button onclick="proceed(${todo.id})">Proceed</button>
         <button onclick="removeTodo(${todo.id})">x</button>
@@ -31,9 +31,11 @@ function addTodo(todo) {
     renderTodo(todo);
 }
 
+const checkIfChecked = isCheckedProperty => isCheckedProperty ? "checked" : "";
+
 function tickTodo(tickId) {
     const todoIndex = todos.findIndex(todo => todo.id === tickId);
-    todos[todoIndex].checkbox === "unchecked" ? todos[todoIndex].checkbox = "checked" : todos[todoIndex].checkbox = "unchecked";
+    todos[todoIndex].isChecked ? todos[todoIndex].isChecked = false : todos[todoIndex].isChecked = true;
     renderTodos();
 }
 
@@ -74,7 +76,7 @@ form.addEventListener("submit", e => {
         id: Math.floor(Math.random() * 10000000),
         text: todoText.value,
         isRemoved: false,
-        checkbox: "unchecked"
+        isChecked: false
     });
 
     todoText.value = "";

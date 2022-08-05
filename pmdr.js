@@ -36,6 +36,10 @@ function decreaseTime() {
         }
     } else {
         stopTimer();
+        minutes = 25;
+        seconds = 0;
+        breakMinutes = 5;
+        roundsToStop = 2;
     }
 }
 
@@ -78,6 +82,7 @@ stopButton.addEventListener("click", () => {
 resetButton.addEventListener("click", () => {
     stopTimer();
     minutes = 25;
+    breakMinutes = 5;
     seconds = 0;
     updateDisplay();
     title.innerText = "Pomodoro Timer"
