@@ -49,8 +49,8 @@ function stopTimer() {
 }
 
 function startTimer() {
-    timer = setInterval(decreaseTime, 10);
-    display = setInterval(updateDisplay, 10);
+    timer = setInterval(decreaseTime, 1000);
+    display = setInterval(updateDisplay, 1000);
 }
 
 const updateMinutes = () => minutes.toString().length === 2 ? minutes : `0${minutes}`;
