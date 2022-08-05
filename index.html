@@ -8,21 +8,58 @@
     <title>To Do App</title>
     <link rel="stylesheet" href="app.css">
 </head>
-
 <div class="container">
-    <h1>To Do List</h1>
 
-    <form action="#" id="todoForm">
-        <input type="text" id="todoText" placeholder="New Todo...">
-        <button id="addButton">Add</button>
-    </form>
+    <section id="todo" class="styleSections">
+        <h1>To Do List</h1>
 
-    <ul id="todoList">
-    </ul>
+        <form action="#" id="todoForm">
+            <input type="text" id="todoText" placeholder="New Todo...">
+            <button id="addButton">Add</button>
+        </form>
+
+        <ul id="todoList">
+        </ul>
+    </section>
+
+    <section id="pmdr" class="styleSections">
+        <h1 id="title">Pomodoro Timer</h1>
+
+        <div class="timerInput">
+            <form action="#" id="workTimeForm">
+                <label for="setTimeValue"><span class="sameWidth">Working Time</span></label>
+                <input id="setTimeValue" type="text" pattern="[0-9]{1,2}" placeholder="mm (default 25:00)">
+                <button id="timeButton">Set</button><br>
+            </form>
+        </div>
+
+        <div class="timerInput">
+            <form action="#" id="breakTimeForm">
+                <label for="setBreakTimeValue"><span class="sameWidth">Break Time</span></label>
+                <input id="setBreakTimeValue" type="text" pattern="[0-9]{1,2}" placeholder="mm (default 05:00)">
+                <button id="breakButton">Set</button>
+            </form>
+        </div>
+
+        <h2 id="timerDisplay">25:00</h2>
+        <div class="timerControl">
+            <button id="startButton">Start</button>
+            <button id="stopButton">Stop</button>
+            <button id="resetButton">Reset</button>
+        </div>
+
+        <div class="customDisplay">
+            <h3 id="displayWork"></h3>
+            <h3 id="displayBreak"></h3>
+        </div>
+
+    </section>
+
 </div>
 
 
-<script src="app.js"></script>
+<script src="pmdr.js"></script>
+<script src="todo.js"></script>
 
 <body>
 

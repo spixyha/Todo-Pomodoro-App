@@ -16,6 +16,7 @@ function renderTodo(todo) {
         <input onclick="tickTodo(${todo.id})" type="checkbox" id="item${todo.id}"${todo.checkbox}>
         <label for="item${todo.id}" class="${todo.checkbox}">${todo.text}</label>
         <button onclick="editTodo(${todo.id})">Edit</button>
+        <button onclick="proceed(${todo.id})">Proceed</button>
         <button onclick="removeTodo(${todo.id})">x</button>
     </li>`;
 }
@@ -60,6 +61,10 @@ function editTodo(editId) {
         todos[todoIndex].text = grabEditedInput.value;
         renderTodos();
     })
+}
+function proceed(proceedId) {
+    const todoIndex = todos.findIndex(todo => todo.id === proceedId);
+    title.innerText = `${todos[todoIndex].text}`;
 }
 
 form.addEventListener("submit", e => {

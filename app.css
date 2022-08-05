@@ -21,21 +21,7 @@ body {
 
 .checked {
     text-decoration: line-through;
-    text-decoration-color: green;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-}
-
-#todoText {
-    width: 250px;
-    height: 5vh;
-    font-size: 1.5rem;
+    text-decoration-color: rgb(57, 221, 57);
 }
 
 .editForm input {
@@ -54,4 +40,47 @@ input[type=checkbox] {
 
 button {
     margin: 5px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    height: auto;
+}
+
+#todoText {
+    width: 250px;
+    height: 5vh;
+    font-size: 1.5rem;
+}
+
+.styleSections {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2rem;
+    width: 400px;
+}
+
+.timerInput {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+#timerDisplay {
+    font-size: 3rem;
+}
+
+.sameWidth {
+    display: inline-block;
+    width: 122px;
+    text-align: end;
+    margin-right: 10px;
+}
+
+.customDisplay {
+    font-size: 1rem;
+    text-align: end;
 }
