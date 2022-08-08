@@ -12,4 +12,9 @@ const displayBreak = document.getElementById("displayBreak");
 const anotherRound = document.getElementById("anotherRound");
 const roundsDisplay = document.getElementById("rounds");
 
-muie psdd
+let timeInput = 25;
+
+
+function updateTimeDisplay() {
+
+}
